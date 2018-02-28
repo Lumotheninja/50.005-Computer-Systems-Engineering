@@ -1,0 +1,8 @@
+Programming Assignment: Woong Wen Tat(1002323), Chow Wei Yang (1001999).
+
+Our solution for Process Management run on threads, where we have an outer loop for all the ProcessGraphNodes (hereby shorten as nodes). At each iteration, we did the following:
+1. check whether the nodes have been executed and not in executedList, if they are not, then we increment a count
+2. check whther the nodes are ready, allParentsExecuted and not running, if so, we create a thread and run thread.start()
+3. check whether count == the number of nodes, if so, we exit the loop.
+
+At the threads implementation, we create an individual process builder for each thread and set Boolean executed to be true once the thread is done. We also redirect outputs and inputs that are not stdin and stdout. There is no need for locks and synchronized method as we use the Boolean running for each node to ensure that the same process is not repeated.
